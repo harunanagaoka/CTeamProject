@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerOneController : MonoBehaviour
@@ -22,7 +21,8 @@ public class PlayerOneController : MonoBehaviour
         float h1 = Input.GetAxis("Horizontal_P1");
         float V1 = Input.GetAxis("Vertical_P1");
         rigidBody.AddForce(Vector3.right * h1 * moveSpeed * Time.deltaTime, ForceMode.Impulse);
-        
+        rigidBody.AddForce(Vector3.forward * V1 * moveSpeed * Time.deltaTime, ForceMode.Impulse);
+
         if (!isjumping_P1 && Input.GetButtonDown("Jump_P1"))
         {
             {

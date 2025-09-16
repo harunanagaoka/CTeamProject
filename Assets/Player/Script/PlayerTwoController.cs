@@ -21,10 +21,12 @@ public class PlayerTwoController : MonoBehaviour
     void Update()
     {
         float h2 = Input.GetAxis("Horizontal_P2");
+        float V2 = Input.GetAxis("Vertical_P2");
         rigidBody.AddForce(Vector3.right * h2 * moveSpeed * Time.deltaTime,ForceMode.Impulse);
+        rigidBody.AddForce(Vector3.forward * V2 * moveSpeed * Time.deltaTime, ForceMode.Impulse);
+
         if (!isjumping_P2 && Input.GetButtonDown("Jump_P2"))
         {
-           
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
              isjumping_P2 = true;
         }
