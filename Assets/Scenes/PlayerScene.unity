@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 153707659}
   - component: {fileID: 153707662}
   - component: {fileID: 153707663}
+  - component: {fileID: 153707664}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -270,6 +271,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 5
+--- !u!114 &153707664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153707657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af4bc8bd36d1d144bd1746b284c7561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0, z: 0}
+  fallThreshold: -10
+  yOffset: 5
+  slowFallSpeed: -2
+  stopHeightOffset: 2
+  stopDuration: 1
 --- !u!1 &621940475
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +424,7 @@ GameObject:
   - component: {fileID: 636270300}
   - component: {fileID: 636270303}
   - component: {fileID: 636270304}
+  - component: {fileID: 636270305}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -542,6 +562,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 5
+--- !u!114 &636270305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636270298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af4bc8bd36d1d144bd1746b284c7561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0, z: 0}
+  fallThreshold: -10
+  yOffset: 5
+  slowFallSpeed: -2
+  stopHeightOffset: 2
+  stopDuration: 1
 --- !u!1 &980359466
 GameObject:
   m_ObjectHideFlags: 0
