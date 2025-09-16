@@ -54,10 +54,6 @@ public class Loopinterval : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-
-    }
 }
 
 
