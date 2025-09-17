@@ -18,7 +18,7 @@ public class PlayerRespawn : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        startPosition = transform.position;
+        transform.position = startPosition;
     }
 
     void Update()
