@@ -65,7 +65,7 @@ public class PlayerRespawn : MonoBehaviour
 
         // ‹ó’†‚Åƒsƒ^ƒb‚Æ’âŽ~
         rb.isKinematic = true;
-        rb.linearVelocity = Vector3.zero;
+       // rb.linearVelocity = Vector3.zero;
 
         yield return new WaitForSeconds(stopDuration);
 

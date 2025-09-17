@@ -47,10 +47,19 @@ public class ObstacleAxis : MonoBehaviour
 
         this.transform.position = pos;
 
+        yield return null;
+    }
 
+    private IEnumerator MoveConveyorReverce()
+    {
 
-            yield return null;
+        Vector3 pos = this.transform.position;
 
+        pos = pos + m_moveDirection;
+
+        this.transform.position = pos;
+
+        yield return null;
     }
 
 }
