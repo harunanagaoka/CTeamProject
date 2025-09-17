@@ -1,16 +1,30 @@
 using UnityEngine;
 
+
 public class ObstacleSpawn : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField]
+    private GameObject m_ObstaclePrefab = null;
+
+    private GameObject ob;
+
+    private ObstacleMove m_obstacleMove = null;
+
     void Start()
     {
-        
+        ob = Instantiate(m_ObstaclePrefab, this.transform);
+
+        // ob.transform.position = 
+
+        //ob.transform.rotation = quaternion;
+
+       // m_obstacleMove = GetComponent<ObstacleMove>();
+
+        //m_obstacleMove.AddObstacle(ob);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

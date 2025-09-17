@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6475170602201502348}
   - component: {fileID: 9131802704913414990}
   - component: {fileID: 4277479056782904543}
+  - component: {fileID: 7490104110920729745}
+  - component: {fileID: 1063352010910631214}
   m_Layer: 0
   m_Name: BeltConveyor
   m_TagString: Untagged
@@ -150,3 +152,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7490104110920729745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380054107958066960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d3c48347fc07c4d9a476f7e1ee4628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObstaclePrefab: {fileID: 4634714014355048816, guid: dadbb8dd39f8a4f4eac1e54358173237, type: 3}
+--- !u!114 &1063352010910631214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380054107958066960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1174f375b638cce439e9a1d0b0d13b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitPos: {x: 0, y: 0, z: 0}
+  m_rotateAngle: 0
+  m_rotateRadius: {x: 0, y: 0, z: 0}
+  m_rotateAxis: {x: 0, y: 0, z: 0}
+  m_moveVelocity: 0
