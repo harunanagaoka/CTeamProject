@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8617936414230495414}
   - component: {fileID: 5271906513375861176}
   - component: {fileID: 834165026996089880}
-  - component: {fileID: 1757091052906797297}
   m_Layer: 0
   m_Name: coinPrefab
   m_TagString: Untagged
@@ -177,15 +176,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_reach: {fileID: 0}
---- !u!114 &1757091052906797297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6414259601154826053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e200c0dd942384e9ee80e63570739c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

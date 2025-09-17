@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Score1 : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject weapon_reach;
 
     // プレイヤーごとのスコア
     public static int player1Score = 0;
