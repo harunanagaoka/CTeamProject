@@ -1,19 +1,33 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class remainingtime : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static bool IsTimeOver { get; private set; } = false;
+    public static int PlayTime { get; private set; }
+    public static float CurrentTime { get; private set; }
+
+    [SerializeField] private int playTime = 30; // プレイ時間（秒）
+    [SerializeField] private Text remaining_timeText;
+    [SerializeField] private Font customFont;
+
+    private float currentTime;
+    private bool isTimeOver = false;
+
     void Start()
     {
-        
+        currentTime = playTime;
+        PlayTime = playTime;
+        CurrentTime = playTime;
+
+        if (remaining_timeText != null && customFont != null)
+        {
+            remaining_timeText.font = customFont;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
-        
-=======
         // ゲームが開始していなければ何もしない
         if (!Timer.IsGameStarted || isTimeOver) return;
 
@@ -35,6 +49,5 @@ public class remainingtime : MonoBehaviour
         {
             remaining_timeText.text = displayTime.ToString();
         }
->>>>>>> d8598b4d43ff204ea2fb0d1e8f33c18ad0dedb79
     }
 }
