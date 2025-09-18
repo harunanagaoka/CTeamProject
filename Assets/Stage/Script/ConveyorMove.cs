@@ -7,7 +7,9 @@ public class ConveyorMove : MonoBehaviour
 
     private Vector3 m_moveVector = Vector3.zero;
 
-    private string m_tagName = "Player";
+    private string m_tagName_one = "Player1";
+
+    private string m_tagName_two = "Player2";
 
     void Start()
     {
@@ -16,10 +18,10 @@ public class ConveyorMove : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.collider.tag == m_tagName)
+        if (collision.collider.tag == m_tagName_one || collision.collider.tag == m_tagName_two)
         {
             Rigidbody rb = collision.collider.GetComponent<Rigidbody>();
-            rb.AddForce(m_moveVector, ForceMode.Force);
+            rb.AddForce(m_moveVector, ForceMode.Acceleration);
         }
     }
 }
