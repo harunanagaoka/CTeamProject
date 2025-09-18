@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement; // 追加
@@ -5,7 +6,6 @@ using UnityEngine.SceneManagement; // 追加
 public class button_retry : MonoBehaviour
 {
     private Timer timer;
-    private int selectnum = 0;
 
     [SerializeField] private GameObject resultObjectsParent; // InspectorでResultObjectsをアサイン
 
@@ -17,14 +17,6 @@ public class button_retry : MonoBehaviour
     void Update()
     {
         if (Keyboard.current == null) return;
-
-        if (selectnum == 0)
-        {
-            // ↓キーで下に移動
-            if (Keyboard.current.downArrowKey.wasPressedThisFrame)
-            {
-                selectnum = 1;
-            }
 
             // Enterキーでリトライ
             if (Keyboard.current.enterKey.wasPressedThisFrame)
@@ -43,24 +35,19 @@ public class button_retry : MonoBehaviour
                 // Timerのカウントダウンを再開
                 if (timer != null)
                 {
-                    timer.RestartCountdown();
+                    timer.RestartCountdown(); // コルーチンでカウントダウンを再スタート
                 }
             }
-        }
-        else
-        {
-            // ↑キーで上に移動
-            if (Keyboard.current.upArrowKey.wasPressedThisFrame)
-            {
-                selectnum = 0;
-            }
+        
 
-            // Enterキーでアプリ終了
-            if (Keyboard.current.enterKey.wasPressedThisFrame)
+            // Enterキーで最初からやり直し（シーンリロード）
+            if (Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton2))
             {
-                Debug.Log("終了処理が呼ばれました");
-                Application.Quit();
+                
+                Debug.Log("最初からやり直します");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                
             }
-        }
+        
     }
 }

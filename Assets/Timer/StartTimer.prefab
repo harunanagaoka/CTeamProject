@@ -555,4 +555,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playTime: 30
   remaining_timeText: {fileID: 2916378589440389946}
+  end: {fileID: 21300000, guid: 64337a58465959f4bb1b5dcf612943d5, type: 3}
   customFont: {fileID: 12800000, guid: 51793a990cbff644bba69c3cf6d04839, type: 3}

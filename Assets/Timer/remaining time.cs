@@ -9,6 +9,9 @@ public class remainingtime : MonoBehaviour
 
     [SerializeField] private int playTime = 30; // プレイ時間（秒）
     [SerializeField] private Text remaining_timeText;
+    [SerializeField] private Sprite end;
+    //[SerializeField] private Animation end;
+    //[SerializeField] private Text end;
     [SerializeField] private Font customFont;
 
     private float currentTime;

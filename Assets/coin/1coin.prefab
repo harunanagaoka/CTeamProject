@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 87a6c0ff201d21e44b81aa401be2121b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a6c0ff201d21e44b81aa401be2121b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a6c0ff201d21e44b81aa401be2121b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a6c0ff201d21e44b81aa401be2121b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
@@ -92,17 +104,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 180
   gravityY: -9.81
-  spawnPositions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
 --- !u!65 &5954173902003007164
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,3 +164,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a29c8b00ffe129408281d914715b128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 1
+  collectEffect: {fileID: 1514958494829916447, guid: 64e7a93e819528e428396a48e65544a1, type: 3}
