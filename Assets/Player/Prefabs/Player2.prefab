@@ -1390,7 +1390,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5029145021746928221}
   - component: {fileID: 6621531412930529325}
-  - component: {fileID: 5223600504920702309}
   - component: {fileID: 4069067501277105559}
   - component: {fileID: 7132446894410331956}
   m_Layer: 0
@@ -1445,25 +1444,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &5223600504920702309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5656745900158353639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37addf183d20df448bbfdaf2ea374d8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundMoveSpeed: 5
-  rotationSpeed: 5.5
-  jumpForce: 5.7
-  fallMultiplier: 2
-  lowJumpMultiplier: 2
-  airControl: 0.435
-  airMoveSpeed: 4
 --- !u!114 &4069067501277105559
 MonoBehaviour:
   m_ObjectHideFlags: 0
