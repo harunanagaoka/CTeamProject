@@ -10,7 +10,7 @@ public class winner : MonoBehaviour
 
     void Update()
     {
-        if (remainingtime.IsTimeOver && !isShown)
+        if (TimerPlay.IsTimeOver && !isShown)
         {
             ShowWinnerCharacter();
             isShown = true;
