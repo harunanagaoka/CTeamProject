@@ -10,7 +10,15 @@ public class SEManager : MonoBehaviour
 
     public enum SoundEffectName
     {
-        SEName
+        one,
+        two, 
+        three, 
+        four, 
+        five, 
+        six, 
+        seven,
+        eight,
+        nine
     }
     public void OnPlayOneShot(SoundEffectName seNum)
     {
