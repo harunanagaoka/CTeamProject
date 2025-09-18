@@ -6,13 +6,14 @@ public class UI : MonoBehaviour
     public static int player1Score;
     public static int player2Score;
 
-    [SerializeField]
-    private Text winnerText; // InspectorでTextをアサイン
+    [SerializeField] private Sprite P1winner;
+    [SerializeField] private Sprite P2winner;
+    [SerializeField] private GameObject winnerImageObject; // 画像オブジェクトをアサイン
 
     void Update()
     {
-    }
 
+    }
 
     void ShowWinner()
     {
@@ -21,15 +22,17 @@ public class UI : MonoBehaviour
 
         if (p1 > p2)
         {
-            winnerText.text = "Player 1 wins!";
+            winnerImageObject.SetActive(true); // 表示
+            winnerImageObject.GetComponent<Image>().sprite = P1winner;
         }
         else if (p2 > p1)
         {
-            winnerText.text = "Player 2 wins!";
+            winnerImageObject.SetActive(true); // 表示
+            winnerImageObject.GetComponent<Image>().sprite = P2winner;
         }
         else
         {
-            winnerText.text = "It's a tie!";
+            winnerImageObject.SetActive(false); // 引き分け時は非表示
         }
     }
 }

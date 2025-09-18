@@ -30,6 +30,7 @@ public class Timer : MonoBehaviour
         isCountdownStarted = true;
         startButton.interactable = false;
         Destroy(startButton.gameObject); // ボタンを消す
+
         StartCoroutine(CountdownCoroutine());
     }
 
@@ -68,7 +69,7 @@ public class Timer : MonoBehaviour
         IsGameStarted = true;
     }
 
-    public void RestartCountdown()//採用戦を押した場合にカウントダウンのところまで戻ってくる用の関数
+    public void RestartCountdown()//再戦を押した場合にカウントダウンのところまで戻ってくる用の関数
     {
         StopAllCoroutines();
         IsGameStarted = false;

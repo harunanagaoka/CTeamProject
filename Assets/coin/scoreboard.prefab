@@ -171,18 +171,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: p1score
+  m_Text: P1:0
 --- !u!1 &6133024081741577585
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 1809923360103233048}
   - component: {fileID: 6308366481654270609}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: boardmanager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1ScoreText: {fileID: 2856373673781992308}
   player2ScoreText: {fileID: 9174736862192913929}
+  Font: {fileID: 12800000, guid: 51793a990cbff644bba69c3cf6d04839, type: 3}
 --- !u!1 &6508830146310860070
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,15 +297,15 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: p2score
+  m_Text: P2:0

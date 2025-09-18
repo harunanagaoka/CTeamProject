@@ -41,13 +41,18 @@ public class button_retry : MonoBehaviour
         
 
             // Enterキーで最初からやり直し（シーンリロード）
-            if (Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton2))
+            if (Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 
                 Debug.Log("最初からやり直します");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 
             }
-        
+
+        //if (Gamepad.current.buttonSouth.wasPressedThisFrame)
+        //    Debug.Log("A / × ボタンが押されました");
+
+        //if (Gamepad.current.buttonEast.wasPressedThisFrame)
+        //    Debug.Log("B / ○ ボタンが押されました");
     }
 }

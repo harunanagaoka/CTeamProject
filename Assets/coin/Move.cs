@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    [SerializeField]
-    private float rotationSpeed = 180f;
+    //[SerializeField]
+    //private float rotationSpeed = 180f;
 
     [SerializeField]
     private float gravityY = -9.81f; // Inspector‚Åd—Í‚Ì‹­‚³‚ğ’²®‰Â”\
@@ -33,7 +33,7 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+        //transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
 
         // ˆê’è‚Ì‚‚³‚æ‚è‰º‚É—‚¿‚½‚ç©•ª©g‚ğÁ‚·
         if (transform.position.y < -10f)
