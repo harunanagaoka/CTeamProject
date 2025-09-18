@@ -11,21 +11,41 @@ public class Score3 : MonoBehaviour
         
     }
 
+    void Update()//debug用
+    {
+        // スコアが変化した場合にログを出力
+        if (lastPlayer1Score != Score1.player1Score)
+        {
+            lastPlayer1Score = Score1.player1Score;
+            Debug.Log("Player 1 Score: " + lastPlayer1Score);
+        }
+        if (lastPlayer2Score != Score1.player2Score)
+        {
+            lastPlayer2Score = Score1.player2Score;
+            Debug.Log("Player 2 Score: " + lastPlayer2Score);
+        }
+    }
+
     // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
         // Score1のスコアを常に参照
         int p1 = Score1.player1Score;
         int p2 = Score1.player2Score;
 
-        // スコアが変化したときだけログ出力（例）
-        if (p1 != lastPlayer1Score || p2 != lastPlayer2Score)
-        {
-            Debug.Log($"Player1 Score: {p1}, Player2 Score: {p2}");
-            lastPlayer1Score = p1;
-            lastPlayer2Score = p2;
-        }
 
+        // プレイヤー1に触れた場合
+        if (other.CompareTag("Player1"))
+        {
+            p1 += 3;
+            Destroy(gameObject); // コインを消す
+        }
+        // プレイヤー2に触れた場合
+        else if (other.CompareTag("Player2"))
+        {
+            p2 += 3;
+            Destroy(gameObject); // コインを消す
+        }
         // 他にもスコアに応じた処理をここに記述可能
     }
 }
