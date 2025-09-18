@@ -47,7 +47,7 @@ public class remainingtime : MonoBehaviour
         int displayTime = Mathf.CeilToInt(currentTime);
         if (remaining_timeText != null)
         {
-            remaining_timeText.text = "Žc‚èŽžŠÔ: " + displayTime.ToString() + "•b";
+            remaining_timeText.text = displayTime.ToString();
         }
     }
 }
