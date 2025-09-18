@@ -41,7 +41,7 @@ public class Score3 : MonoBehaviour
             Destroy(gameObject); // コインを消す
         }
         // プレイヤー2に触れた場合
-        else if (other.CompareTag("Player2"))
+        if (other.CompareTag("Player2"))
         {
             p2 += 3;
             Destroy(gameObject); // コインを消す

@@ -23,7 +23,7 @@ public class Score1 : MonoBehaviour
             Destroy(gameObject); // コインを消す
         }
         // プレイヤー2に触れた場合
-        else if (other.CompareTag("Player2"))
+        if (other.CompareTag("Player2"))
         {
             player2Score += 1;
             Destroy(gameObject); // コインを消す
