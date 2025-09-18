@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class Score3 : MonoBehaviour
 {
+    [SerializeField]
+    private int scoreValue = 3; // 獲得するスコアの値
+    [SerializeField]
+    private GameObject collectEffect; // 獲得エフェクトのPrefab
+
     // 例: スコアの変化を監視してログに出力
     private int lastPlayer1Score = -1;
     private int lastPlayer2Score = -1;
@@ -37,15 +42,25 @@ public class Score3 : MonoBehaviour
         // プレイヤー1に触れた場合
         if (other.CompareTag("Player1"))
         {
-            p1 += 3;
+            p1 += scoreValue;
+            PlayEffect(); 
             Destroy(gameObject); // コインを消す
         }
         // プレイヤー2に触れた場合
         if (other.CompareTag("Player2"))
         {
-            p2 += 3;
+            p2 += scoreValue;
+            PlayEffect();
             Destroy(gameObject); // コインを消す
         }
         // 他にもスコアに応じた処理をここに記述可能
+    }
+
+    private void PlayEffect()
+    {
+        if (collectEffect != null)
+        {
+            Instantiate(collectEffect, transform.position, Quaternion.identity);
+        }
     }
 }
