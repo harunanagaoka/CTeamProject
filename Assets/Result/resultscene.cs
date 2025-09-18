@@ -7,7 +7,7 @@ public class resultscene : MonoBehaviour
 
     void Update()
     {
-        if (TimerPlay.IsTimeOver && !postProcessEnabled)
+        if (remainingtime .IsTimeOver && !postProcessEnabled)
         {
             var cam = Camera.main;
             if (cam != null)
