@@ -31,6 +31,13 @@ public class PlayerOneController : MonoBehaviour
 
     void FixedUpdate()
     {
+            // リスポーン中は操作禁止
+            if (GetComponent<PlayerRespawn>().IsRespawning())
+                return;
+
+            // ここから移動・ジャンプ処理
+        
+
         Vector3 inputDir = new Vector3(Input.GetAxis(HORIZONTAL), 0, Input.GetAxis(VERTICAL));
 
         if (inputDir.sqrMagnitude > 0.001f)
@@ -88,7 +95,7 @@ public class PlayerOneController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("BeltConveyor"))
+        if (collision.gameObject.CompareTag("BeltConveyor"))
             isJumping = false;
     }
 }
