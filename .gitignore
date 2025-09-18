@@ -97,3 +97,7 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+Assets/Scenes/Stage_REMOTE_429.unity.meta
+Assets/Scenes/Stage_LOCAL_429.unity.meta
+Assets/Scenes/Stage_BASE_429.unity.meta
+Assets/Scenes/Stage_BACKUP_429.unity.meta
