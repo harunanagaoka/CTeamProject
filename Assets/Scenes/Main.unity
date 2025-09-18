@@ -759,10 +759,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a34cf2784b42c41aa8c58495aae785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin1Prefab: {fileID: 4450945187674591295, guid: 54f82d30577daaa4ab3856a4f4c08214, type: 3}
+  coin1Prefab: {fileID: 4450945187674591295, guid: 0c48f0b19c3711a4db8af575106a430b, type: 3}
   coin1Interval: 5
   coin1Count: 3
-  coin3Prefab: {fileID: 5364848748895171878, guid: 7363118925a53604d944af755e1eb25c, type: 3}
+  coin3Prefab: {fileID: 5364848748895171878, guid: 0ba1293189597ab49b9e9487e1d66ffe, type: 3}
   coin3Interval: 8
   coin3Count: 1
   spawnPositions1:
