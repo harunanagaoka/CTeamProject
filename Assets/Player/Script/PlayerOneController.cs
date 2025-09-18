@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class DaisyJumpController : MonoBehaviour
+public class PlayerOneController : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float groundMoveSpeed = 5f;
