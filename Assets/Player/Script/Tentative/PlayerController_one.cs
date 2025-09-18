@@ -1,7 +1,10 @@
+//コンフリクト防止のためPlayerControllerのコピーを作成しています。
+//コンベアー上での動きを追加
+
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerTwoController : MonoBehaviour
+public class PlayerController_one : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float groundMoveSpeed = 5f;
@@ -18,15 +21,19 @@ public class PlayerTwoController : MonoBehaviour
 
     private Rigidbody rb;
     private bool isJumping = false;
+    private bool isOnConveyor = false;
 
     // 入力
-    private const string HORIZONTAL = "Horizontal_P2";
-    private const string VERTICAL = "Vertical_P2";
-    private const string JUMP = "Jump_P2";
+    private const string HORIZONTAL = "Horizontal_P1";
+    private const string VERTICAL = "Vertical_P1";
+    private const string JUMP = "Jump_P1";
+
+    private ConveyorMove m_onConveyor = null;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        m_onConveyor = GetComponent<ConveyorMove>();
     }
 
     void FixedUpdate()
@@ -59,7 +66,7 @@ public class PlayerTwoController : MonoBehaviour
             Quaternion targetRot = Quaternion.LookRotation(new Vector3(inputDir.x, 0, inputDir.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotationSpeed * Time.fixedDeltaTime);
         }
-        else if (!isJumping)
+        else if (!isJumping && !isOnConveyor)
         {
             // 地上で入力なし → ピタッと止まる
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
@@ -88,8 +95,26 @@ public class PlayerTwoController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("BeltConveyor"))//collision.gameObject.CompareTag("Ground") || 
+        if (collision.gameObject.CompareTag("BeltConveyor"))
+        {
+            isOnConveyor = true;
             isJumping = false;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("BeltConveyor"))
+        {
+            m_onConveyor.Move(rb);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("BeltConveyor"))
+        {
+            isOnConveyor = false;
+        }
     }
 }
-

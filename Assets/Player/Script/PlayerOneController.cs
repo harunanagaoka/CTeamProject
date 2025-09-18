@@ -88,7 +88,7 @@ public class PlayerOneController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("BeltConveyor"))
+        if (collision.gameObject.CompareTag("BeltConveyor"))//collision.gameObject.CompareTag("Ground") || 
             isJumping = false;
     }
 }
