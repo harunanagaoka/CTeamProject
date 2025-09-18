@@ -98,43 +98,26 @@ public class PlayerTwoController : MonoBehaviour
     {
         if (!isJumping && Input.GetButtonDown(JUMP))
         {
+            // 現在の速度を取得
             Vector3 vel = rb.linearVelocity;
 
-            if (!ignoreConveyorOnJump)
-            {
-                // 足元のベルト速度をそのまま保持
-                if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.1f))
-                {
-                    if (hit.collider.CompareTag("BeltConveyor"))
-                    {
-                        ConveyorMove belt = hit.collider.GetComponent<ConveyorMove>();
-                        if (belt != null)
-                        {
-                            vel.x = belt.GetConveyorVelocity().x;
-                            vel.z = belt.GetConveyorVelocity().z;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                // 入力方向の速度を保持
-                float h = Input.GetAxis(HORIZONTAL);
-                float v = Input.GetAxis(VERTICAL);
-                Vector3 inputDir = new Vector3(h, 0, v);
+            // 横方向は「入力中なら入力ベクトル」「入力がなければ現状の速度」を使う
+            float h = Input.GetAxis(HORIZONTAL);
+            float v = Input.GetAxis(VERTICAL);
+            Vector3 inputDir = new Vector3(h, 0, v);
 
-                if (inputDir.sqrMagnitude > 0.001f)
-                {
-                    vel.x = inputDir.normalized.x * groundMoveSpeed;
-                    vel.z = inputDir.normalized.z * groundMoveSpeed;
-                }
-                // 入力がなければ現在のXZ速度を維持する（後ろに戻らない）
+            if (inputDir.sqrMagnitude > 0.001f)
+            {
+                vel.x = inputDir.normalized.x * groundMoveSpeed;
+                vel.z = inputDir.normalized.z * groundMoveSpeed;
             }
+            // 入力がないときは vel.x, vel.z はそのまま保持（慣性を残す）
 
-            // 縦方向だけリセットして上にジャンプ
+            // Y方向だけリセット
             vel.y = 0f;
             rb.linearVelocity = vel;
 
+            // 上方向にジャンプ力を加える
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isJumping = true;
         }
