@@ -12,10 +12,16 @@ public class Loopinterval : MonoBehaviour
     [SerializeField]
     private int Number_of_coins = 3;
 
-    void Start()
-    {
+    private bool hasStarted = false;
 
-        StartCoroutine(SpawnCoinLoop());
+    void Update()
+    {
+        // ゲーム開始フラグが立ったら一度だけコルーチンを開始
+        if (!hasStarted && Timer.IsGameStarted)
+        {
+            hasStarted = true;
+            StartCoroutine(SpawnCoinLoop());
+        }
     }
 
     System.Collections.IEnumerator SpawnCoinLoop()
@@ -53,7 +59,6 @@ public class Loopinterval : MonoBehaviour
             Instantiate(coinPrefab, pos, Quaternion.identity);
         }
     }
-
 }
 
 
