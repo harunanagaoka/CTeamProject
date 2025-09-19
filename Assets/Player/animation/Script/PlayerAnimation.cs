@@ -6,6 +6,8 @@ public class PlayerAnimation : MonoBehaviour
 {
     private Animator anim = null;
     bool isJumping = false;
+    [SerializeField] private bool isRespawn;
+    [SerializeField] private PlayerRespawn playerRespawn;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,28 +17,37 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isJumping && Input.GetKeyDown(KeyCode.JoystickButton1))
+        isRespawn = playerRespawn.isRespawning;
+        if (!isRespawn)
         {
-            isJumping = true;
-        }
-
-        if (!isJumping)
-        {
-            float horizonralKey = Input.GetAxis("Horizontal");
-
-
-            if (horizonralKey != 0)
+            if (!isJumping && Input.GetKeyDown(KeyCode.JoystickButton1))
             {
-                anim.SetInteger("PlayerMove", 1);
+                isJumping = true;
             }
-            else if (horizonralKey == 0)
+
+            if (!isJumping)
             {
-                anim.SetInteger("PlayerMove", 0);
+                float horizonralKey = Input.GetAxis("Horizontal");
+                float verticalKey = Input.GetAxis("Vertical");
+
+
+                if (horizonralKey != 0)
+                {
+                    anim.SetInteger("PlayerMove", 1);
+                }
+                else if (verticalKey != 0)
+                {
+                    anim.SetInteger("PlayerMove", 1);
+                }
+                else if (verticalKey == 0 && horizonralKey == 0)
+                {
+                    anim.SetInteger("PlayerMove", 0);
+                }
             }
-        }
-        else if (isJumping)
-        {
-            anim.SetInteger("PlayerMove", 2);
+            else if (isJumping)
+            {
+                anim.SetInteger("PlayerMove", 2);
+            }
         }
     }
     private void OnCollisionEnter(Collision collision)
