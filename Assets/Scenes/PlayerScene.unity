@@ -327,7 +327,7 @@ Transform:
   m_GameObject: {fileID: 2005016259}
   serializedVersion: 2
   m_LocalRotation: {x: 0.33682406, y: -0.16317599, z: 0.059391193, w: 0.92541665}
-  m_LocalPosition: {x: 7.5, y: 19, z: -20.5}
+  m_LocalPosition: {x: 4.23, y: 6.1, z: -8.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -446,6 +446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 4786514816801240488, guid: 17b771c76aea8834e8874444ae1e8cf3, type: 3}
+      propertyPath: conveyorSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8006761013849750769, guid: 17b771c76aea8834e8874444ae1e8cf3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -521,7 +525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9086790775957111399, guid: 623c8d531349d684d9094303da010daf, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9086790775957111399, guid: 623c8d531349d684d9094303da010daf, type: 3}
       propertyPath: m_LocalRotation.y
@@ -529,7 +533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9086790775957111399, guid: 623c8d531349d684d9094303da010daf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9086790775957111399, guid: 623c8d531349d684d9094303da010daf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
