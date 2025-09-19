@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimationP1 : MonoBehaviour
 {
     private Animator anim = null;
     bool isJumping = false;
     [SerializeField] private bool isRespawn;
     [SerializeField] private PlayerRespawn playerRespawn;
+
+    private const string JUMP = "Jump_P1";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,15 +22,15 @@ public class PlayerAnimation : MonoBehaviour
         isRespawn = playerRespawn.isRespawning;
         if (!isRespawn)
         {
-            if (!isJumping && Input.GetKeyDown(KeyCode.JoystickButton1))
+            if (!isJumping && Input.GetButtonDown(JUMP))
             {
                 isJumping = true;
             }
 
             if (!isJumping)
             {
-                float horizonralKey = Input.GetAxis("Horizontal");
-                float verticalKey = Input.GetAxis("Vertical");
+                float horizonralKey = Input.GetAxis("Horizontal_P1");
+                float verticalKey = Input.GetAxis("Vertical_P1");
 
 
                 if (horizonralKey != 0)
