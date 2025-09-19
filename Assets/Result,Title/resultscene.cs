@@ -3,7 +3,8 @@ using UnityEngine.Rendering.PostProcessing; // Post Processing v2‚Ìê‡
 
 public class resultscene : MonoBehaviour
 {
-    private bool postProcessEnabled = false;
+    private bool postProcessEnabled = false;//‚Ú‚©‚µ—p
+    public static bool IsTimeOver { get; private set; } = false;
 
     void Update()
     {
