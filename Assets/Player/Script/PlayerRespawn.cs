@@ -12,7 +12,7 @@ public class PlayerRespawn : MonoBehaviour
     [SerializeField] private float stopDuration = 1f;
 
     private Rigidbody rb;
-    private bool isRespawning = false;
+    public bool isRespawning = false;
     private bool isSlowFalling = false;
     private float stopY;
 
