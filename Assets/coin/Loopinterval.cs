@@ -31,7 +31,10 @@ public class Loopinterval : MonoBehaviour
     {
         while (true)
         {
-            SpawnRandomCoins(count, prefab);
+            if (!remainingtime.IsTimeOver)
+            {
+                SpawnRandomCoins(count, prefab);
+            }
             yield return new WaitForSeconds(interval);
         }
     }

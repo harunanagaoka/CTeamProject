@@ -31,6 +31,10 @@ public class remainingtime : MonoBehaviour
 
     void Update()
     {
+
+        Debug.Log("残り時間" + currentTime);
+
+
         // ゲームが開始していなければ何もしない
         if (!Timer.IsGameStarted || isTimeOver) return;
 
@@ -65,4 +69,15 @@ public class remainingtime : MonoBehaviour
             remaining_timeText.text = displayTime.ToString();
         }
     }
+    //remainingTime内で以下の関数を宣言する
+    public void ResetTime()
+    {
+        currentTime = playTime;
+    }
+
+    public void debug()
+    {
+        Debug.Log(currentTime);
+    }
+
 }

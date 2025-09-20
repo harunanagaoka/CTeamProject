@@ -530,6 +530,10 @@ PrefabInstance:
       value: Timermanager
       objectReference: {fileID: 0}
     - target: {fileID: 6509317405074906119, guid: a49061872cadf434782de1529b3cba22, type: 3}
+      propertyPath: src
+      value: 
+      objectReference: {fileID: 5980055845927879375}
+    - target: {fileID: 6509317405074906119, guid: a49061872cadf434782de1529b3cba22, type: 3}
       propertyPath: TimerText
       value: 
       objectReference: {fileID: 1311199535959439487}
@@ -570,3 +574,4 @@ MonoBehaviour:
   playTime: 30
   remaining_timeText: {fileID: 8158509609639829115}
   customFont: {fileID: 12800000, guid: 51793a990cbff644bba69c3cf6d04839, type: 3}
+  buttonResult: {fileID: 0}

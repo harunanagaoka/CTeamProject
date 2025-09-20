@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement; // 追加
 
 public class button_retry : MonoBehaviour
 {
+    [SerializeField]
     private Timer timer;
 
 /*    [SerializeField] private GameObject resultObjectsParent;*/ // InspectorでResultObjectsをアサイン
@@ -56,7 +57,7 @@ public class button_retry : MonoBehaviour
                 timer.RestartCountdown();
             }
         }
-        // Enterキーで最初からやり直し（シーンリロード）
+        // Spaceキーで最初からやり直し（シーンリロード）
         if (Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             Debug.Log("最初からやり直します");

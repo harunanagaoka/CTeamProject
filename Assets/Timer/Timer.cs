@@ -9,6 +9,9 @@ public class Timer : MonoBehaviour
     Text TimerText;
 
     [SerializeField]
+    private remainingtime src; // 追加
+
+    [SerializeField]
     private CanvasGroup timerCanvasGroup; // 追加
 
     // ゲーム開始フラグ（他スクリプトから参照できるようにstaticにする）
@@ -66,11 +69,14 @@ public class Timer : MonoBehaviour
 
     public void RestartCountdown()//再戦を押した場合にカウントダウンのところまで戻ってくる用の関数
     {
+        src.ResetTime();
+
         StopAllCoroutines();
         IsGameStarted = false;
         isCountdownStarted = false;
         TimerText.gameObject.SetActive(true);
-        timerCanvasGroup.alpha = 1f; // フェードイン状態に戻す
         StartCoroutine(CountdownCoroutine());
+
+        Debug.Log("リトライが選択されました");
     }
 }
