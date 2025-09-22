@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // UIを使うときに必要
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -9,24 +9,33 @@ public class Timer : MonoBehaviour
     Text TimerText;
 
     [SerializeField]
-    private CanvasGroup timerCanvasGroup; // 追加
+    private remainingtime src;
 
-    // ゲーム開始フラグ（他スクリプトから参照できるようにstaticにする）
+    [SerializeField]
+    private Image timerImage; // ← Imageに変更
+
     public static bool IsGameStarted { get; private set; } = false;
 
     private bool isCountdownStarted = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        TimerText.text = " "; // 最初は空にしておく
-        timerCanvasGroup.alpha = 1f; // 念のため初期化
+        UI.isShown = false;
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        TimerText.text = " ";
+        if (timerImage != null)
+        {
+            var c = timerImage.color;
+            c.a = 1f;
+            timerImage.color = c;
+        }
+    }
+
     void Update()
     {
-        // まだカウントダウンが始まっていない場合のみBボタン入力を受け付ける
         if (!isCountdownStarted && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton1)))
         {
             isCountdownStarted = true;
@@ -34,43 +43,70 @@ public class Timer : MonoBehaviour
         }
     }
 
-    IEnumerator CountdownCoroutine()
+    IEnumerator CountdownCoroutine()//一度目のスタート用
     {
         // フェードアウト開始
-        yield return StartCoroutine(FadeOutCanvasGroup(timerCanvasGroup, 1.0f));
+        yield return StartCoroutine(FadeOutImage(timerImage, 1.0f));
 
         yield return new WaitForSeconds(3f);
 
-        // 「Go!」表示後1秒待つ
         yield return new WaitForSeconds(1f);
 
-        // UIを非表示にする（完全に消したい場合）
         TimerText.gameObject.SetActive(false);
 
-        // ここでゲーム開始
         IsGameStarted = true;
     }
 
-    IEnumerator FadeOutCanvasGroup(CanvasGroup group, float duration)
+    IEnumerator ReCountdownCoroutine()//リトライ用
     {
-        float startAlpha = group.alpha;
+        // フェードアウト開始
+
+        yield return new WaitForSeconds(3f);
+
+        yield return new WaitForSeconds(1f);
+
+        TimerText.gameObject.SetActive(false);
+
+        IsGameStarted = true;
+    }
+
+
+    IEnumerator FadeOutImage(Image image, float duration)
+    {
+        if (image == null) yield break;
+        float startAlpha = image.color.a;
         float time = 0f;
+        Color c = image.color;
         while (time < duration)
         {
             time += Time.deltaTime;
-            group.alpha = Mathf.Lerp(startAlpha, 0f, time / duration);
+            c.a = Mathf.Lerp(startAlpha, 0f, time / duration);
+            image.color = c;
             yield return null;
         }
-        group.alpha = 0f;
+        c.a = 0f;
+        image.color = c;
     }
 
-    public void RestartCountdown()//再戦を押した場合にカウントダウンのところまで戻ってくる用の関数
+    public void RestartCountdown()
     {
+        src.ResetTime();
+
         StopAllCoroutines();
+        UI.isShown = false;
         IsGameStarted = false;
         isCountdownStarted = false;
         TimerText.gameObject.SetActive(true);
-        timerCanvasGroup.alpha = 1f; // フェードイン状態に戻す
-        StartCoroutine(CountdownCoroutine());
+
+        if (timerImage != null)
+        {
+            var c = timerImage.color;
+            c.a = 1f;
+            timerImage.color = c;
+        }
+
+        StartCoroutine(ReCountdownCoroutine()); // ← ここを追加
+
+        Debug.Log("リトライが選択されました");
     }
 }

@@ -11,16 +11,15 @@ public class remainingtime : MonoBehaviour
     [SerializeField] private Text remaining_timeText;
     //[SerializeField] private Animation end;
     [SerializeField] private Font customFont;
-    [SerializeField] private GameObject buttonResult;
+    [SerializeField] private button_retry button_Retry = null;
 
     private float currentTime;
-    private bool isTimeOver = false;
+    //private bool isTimeOver = false;
 
     void Start()
     {
         currentTime = playTime;
-        PlayTime = playTime;
-        CurrentTime = playTime;
+ 
 
 
         if (remaining_timeText != null && customFont != null)
@@ -31,29 +30,36 @@ public class remainingtime : MonoBehaviour
 
     void Update()
     {
+
+        Debug.Log("残り時間" + currentTime);
+
+
         // ゲームが開始していなければ何もしない
-        if (!Timer.IsGameStarted || isTimeOver) return;
+        if (!Timer.IsGameStarted || IsTimeOver) return;
 
         // 残り時間を減らす
         currentTime -= Time.deltaTime;
         CurrentTime = currentTime;
 
-        if (currentTime <= 0f)
+
         if (currentTime <= 0f)
         {
             currentTime = 0f;
-            
-        //if (end != null)
-        //    {
-        //        end.Play();
-        //    }
-            isTimeOver = true;
-            Debug.Log("制限時間終了！");
+
+            //if (end != null)
+            //    {
+            //        end.Play();
+            //    }
             IsTimeOver = true;
+            Debug.Log("制限時間終了！");
                 // 制限時間終了時にbuttonResultをアクティブにする
-                if (buttonResult != null)
+                if (button_Retry != null)
                 {
-                    buttonResult.SetActive(remainingtime.IsTimeOver);
+                //var retryScript = button_Retry.GetComponent<button_retry>();
+                    if (button_Retry != null)
+                    {
+                    button_Retry.enabled = true;
+                    }
                 }
 
             }
@@ -65,4 +71,12 @@ public class remainingtime : MonoBehaviour
             remaining_timeText.text = displayTime.ToString();
         }
     }
+    //remainingTime内で以下の関数を宣言する
+    public void ResetTime()
+    {
+        currentTime = playTime;
+    }
+
+
+
 }
