@@ -55,6 +55,8 @@ public class Timer : MonoBehaviour
         // フェードアウト開始
         yield return StartCoroutine(FadeOutImage(timerImage, 1.0f));
 
+        yield return new WaitForSeconds(0.3f);
+
         yield return new WaitForSeconds(3f);
 
         yield return new WaitForSeconds(1f);
@@ -69,6 +71,8 @@ public class Timer : MonoBehaviour
     IEnumerator ReCountdownCoroutine()//リトライ用
     {
         timerImage.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(0.3f);
 
         yield return new WaitForSeconds(3f);
 
