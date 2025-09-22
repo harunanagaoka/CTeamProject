@@ -22,8 +22,13 @@ public class Timer : MonoBehaviour
 
     private void Awake()
     {
+        // UIのリザルト表示フラグをリセット
         UI.isShown = false;
+        // ゲーム開始フラグをリセット
         IsGameStarted = false;
+        // プレイヤーの得点をリセット
+        UI.player1Score = 0;
+        UI.player2Score = 0;
     }
 
     void Start()
