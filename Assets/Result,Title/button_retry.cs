@@ -49,7 +49,7 @@ public class button_retry : MonoBehaviour
         }
 
         // Enterキーでリトライ
-        if (Keyboard.current.enterKey.wasPressedThisFrame)
+        if (Keyboard.current.enterKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton1))
         {
             Debug.Log("リトライが選択されました");
             remainingtime.IsTimeOver = false;

@@ -225,7 +225,7 @@ PrefabInstance:
       objectReference: {fileID: 32641956}
     - target: {fileID: 5980055845927879375, guid: 2de2db2c57dba15499fe84f1caf586ce, type: 3}
       propertyPath: playTime
-      value: 2
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5980055845927879375, guid: 2de2db2c57dba15499fe84f1caf586ce, type: 3}
       propertyPath: customFont
