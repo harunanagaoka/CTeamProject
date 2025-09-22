@@ -18,9 +18,12 @@ public class Timer : MonoBehaviour
 
     private bool isCountdownStarted = false;
 
+    public bool canStartCountdown = true; // InspectorÇ©ÇÁÇ‡êÿÇËë÷Ç¶â¬î\
+
     private void Awake()
     {
         UI.isShown = false;
+        IsGameStarted = false;
     }
 
     void Start()
@@ -36,7 +39,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (!isCountdownStarted && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton1)))
+        if (canStartCountdown && !isCountdownStarted && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton1)))
         {
             isCountdownStarted = true;
             StartCoroutine(CountdownCoroutine());
