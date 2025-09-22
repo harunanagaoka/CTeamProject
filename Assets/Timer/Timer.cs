@@ -1,10 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    [SerializeField]
+    private MusicManager musicManager;
+
     [SerializeField]
     Text TimerText;
 
@@ -25,6 +27,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
+        musicManager.OnPlay(MusicManager.MusicName.Title);
         TimerText.text = " ";
         if (timerImage != null)
         {
@@ -38,6 +41,7 @@ public class Timer : MonoBehaviour
     {
         if (!isCountdownStarted && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton1)))
         {
+            musicManager.OnStop();
             isCountdownStarted = true;
             StartCoroutine(CountdownCoroutine());
         }
@@ -55,6 +59,8 @@ public class Timer : MonoBehaviour
         TimerText.gameObject.SetActive(false);
 
         IsGameStarted = true;
+
+        musicManager.OnPlay(MusicManager.MusicName.Main);
     }
 
     IEnumerator ReCountdownCoroutine()//リトライ用
@@ -108,5 +114,10 @@ public class Timer : MonoBehaviour
         StartCoroutine(ReCountdownCoroutine()); // ← ここを追加
 
         Debug.Log("リトライが選択されました");
+    }
+
+    public void FinishMainBGM()
+    {
+        musicManager.OnStop();
     }
 }

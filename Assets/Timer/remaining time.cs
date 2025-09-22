@@ -12,6 +12,7 @@ public class remainingtime : MonoBehaviour
     //[SerializeField] private Animation end;
     [SerializeField] private Font customFont;
     [SerializeField] private button_retry button_Retry = null;
+    [SerializeField] private Timer m_timer = null;
 
     private float currentTime;
     //private bool isTimeOver = false;
@@ -51,6 +52,10 @@ public class remainingtime : MonoBehaviour
             //        end.Play();
             //    }
             IsTimeOver = true;
+
+            m_timer.FinishMainBGM();
+
+
             Debug.Log("制限時間終了！");
                 // 制限時間終了時にbuttonResultをアクティブにする
                 if (button_Retry != null)

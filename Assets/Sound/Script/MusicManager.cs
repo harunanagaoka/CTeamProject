@@ -27,4 +27,9 @@ public class MusicManager : MonoBehaviour
     {
         m_audioSources.Stop();
     }
+
+    public void OnplayResultBGM()
+    {
+
+    }
 }
