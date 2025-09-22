@@ -71,7 +71,7 @@ public class button_retry : MonoBehaviour
             }
         }
         // Spaceキーで最初からやり直し（シーンリロード）
-        if (Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton0))
+        else if (Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             Debug.Log("最初からやり直します");
             remainingtime.IsTimeOver = false;
