@@ -66,7 +66,6 @@ public class remainingtime : MonoBehaviour
                     button_Retry.enabled = true;
                     }
                 }
-
             }
 
         // c‚èŠÔ‚ğ®”‚Å•\¦
@@ -81,7 +80,4 @@ public class remainingtime : MonoBehaviour
     {
         currentTime = playTime;
     }
-
-
-
 }

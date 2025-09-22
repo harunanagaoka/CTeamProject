@@ -6,9 +6,12 @@ public class resultscene : MonoBehaviour
     private bool postProcessEnabled = false;//‚Ú‚©‚µ—p
     public static bool IsTimeOver { get; private set; } = false;
 
+    [SerializeField]
+    private remainingtime remainingtime = null;
+
     void Update()
     {
-        if (TimerPlay.IsTimeOver && !postProcessEnabled)
+        if (remainingtime.IsTimeOver && !postProcessEnabled)
         {
             var cam = Camera.main;
             if (cam != null)
