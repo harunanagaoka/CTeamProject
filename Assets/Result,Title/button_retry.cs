@@ -23,7 +23,7 @@ public class button_retry : MonoBehaviour
     {
 
 
-        if (Keyboard.current == null) return;
+
 
         // --- 以降は既存のボタン処理 ---
         if (remainingtime.IsTimeOver)
@@ -33,7 +33,19 @@ public class button_retry : MonoBehaviour
                     retryButton.SetActive(true);
                 if (titleButton != null && !titleButton.activeSelf)
                     titleButton.SetActive(true);
-            
+
+            this.enabled = true;
+
+        }
+
+        if (!remainingtime.IsTimeOver)
+        {
+            // 制限時間内ならボタンを非表示にする
+            if (retryButton != null && retryButton.activeSelf)
+                retryButton.SetActive(false);
+            if (titleButton != null && titleButton.activeSelf)
+                titleButton.SetActive(false);
+            this.enabled = false;
         }
 
         // Enterキーでリトライ
@@ -41,6 +53,7 @@ public class button_retry : MonoBehaviour
         {
             Debug.Log("リトライが選択されました");
             remainingtime.IsTimeOver = false;
+
 
             // リザルト用オブジェクトを全てDestroy
             //if (resultObjectsParent != null)
