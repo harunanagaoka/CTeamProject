@@ -9,83 +9,52 @@ public class remainingtime : MonoBehaviour
 
     [SerializeField] private int playTime = 30; // プレイ時間（秒）
     [SerializeField] private Text remaining_timeText;
-    //[SerializeField] private Animation end;
+    [SerializeField] private Text player1ScoreText; // 追加
+    [SerializeField] private Text player2ScoreText; // 追加
     [SerializeField] private Font customFont;
     [SerializeField] private button_retry button_Retry = null;
-    [SerializeField] private Timer m_timer = null;
-    [SerializeField] private Animator m_conveyorAnimation = null;
-
-    private bool m_animetionMoving = false;
 
     private float currentTime;
-    //private bool isTimeOver = false;
 
     void Start()
     {
         currentTime = playTime;
- 
-
 
         if (remaining_timeText != null && customFont != null)
         {
             remaining_timeText.font = customFont;
         }
+        if (player1ScoreText != null && customFont != null)
+        {
+            player1ScoreText.font = customFont;
+        }
+        if (player2ScoreText != null && customFont != null)
+        {
+            player2ScoreText.font = customFont;
+        }
     }
 
     void Update()
     {
-
         Debug.Log("残り時間" + currentTime);
 
-
         // ゲームが開始していなければ何もしない
-        if (!Timer.IsGameStarted || IsTimeOver) {
-
-            m_conveyorAnimation.SetBool("isMove",false);
-            m_animetionMoving = false;
-            return;
-        }
-
-        if(m_animetionMoving == false)
-        {
-            m_conveyorAnimation.SetBool("isMove", true);
-            m_animetionMoving = true;
-        }
+        if (!Timer.IsGameStarted || IsTimeOver) return;
 
         // 残り時間を減らす
         currentTime -= Time.deltaTime;
         CurrentTime = currentTime;
 
-
         if (currentTime <= 0f)
         {
             currentTime = 0f;
-
-            //if (end != null)
-            //    {
-            //        end.Play();
-            //    }
             IsTimeOver = true;
-
-            m_timer.FinishMainBGM();
-
-            if (m_animetionMoving == true)
-            {
-                m_conveyorAnimation.SetBool("isMove", false);
-                m_animetionMoving = false;
-            }
-
             Debug.Log("制限時間終了！");
-                // 制限時間終了時にbuttonResultをアクティブにする
-                if (button_Retry != null)
-                {
-                //var retryScript = button_Retry.GetComponent<button_retry>();
-                    if (button_Retry != null)
-                    {
-                    button_Retry.enabled = true;
-                    }
-                }
+            if (button_Retry != null)
+            {
+                button_Retry.enabled = true;
             }
+        }
 
         // 残り時間を整数で表示
         int displayTime = Mathf.CeilToInt(currentTime);
@@ -93,8 +62,18 @@ public class remainingtime : MonoBehaviour
         {
             remaining_timeText.text = displayTime.ToString();
         }
+
+        // スコア表示を更新
+        if (player1ScoreText != null)
+        {
+            player1ScoreText.text = "P1: " + Score1.player1Score.ToString();
+        }
+        if (player2ScoreText != null)
+        {
+            player2ScoreText.text = "P2: " + Score1.player2Score.ToString();
+        }
     }
-    //remainingTime内で以下の関数を宣言する
+
     public void ResetTime()
     {
         currentTime = playTime;
