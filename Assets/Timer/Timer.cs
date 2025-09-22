@@ -20,6 +20,11 @@ public class Timer : MonoBehaviour
     private bool isCountdownStarted = false;
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        UI.isShown = false;
+    }
     void Start()
     {
         TimerText.text = " "; // 最初は空にしておく
@@ -72,6 +77,7 @@ public class Timer : MonoBehaviour
         src.ResetTime();
 
         StopAllCoroutines();
+        UI.isShown = false; // UIの表示をリセット
         IsGameStarted = false;
         isCountdownStarted = false;
         TimerText.gameObject.SetActive(true);

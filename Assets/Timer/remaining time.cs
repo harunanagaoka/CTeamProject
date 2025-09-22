@@ -53,7 +53,6 @@ public class remainingtime : MonoBehaviour
         //    }
             isTimeOver = true;
             Debug.Log("制限時間終了！");
-            IsTimeOver = true;
                 // 制限時間終了時にbuttonResultをアクティブにする
                 if (buttonResult != null)
                 {

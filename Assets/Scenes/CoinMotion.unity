@@ -1068,13 +1068,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6687254443141329286, guid: b4f968d2f2823af40b1ea5f5cb3f54ef, type: 3}
+      propertyPath: weight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8969378151090201663, guid: b4f968d2f2823af40b1ea5f5cb3f54ef, type: 3}
       propertyPath: m_Name
       value: blurmode
       objectReference: {fileID: 0}
     - target: {fileID: 8969378151090201663, guid: b4f968d2f2823af40b1ea5f5cb3f54ef, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
