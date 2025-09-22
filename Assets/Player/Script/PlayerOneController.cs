@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerOneController : MonoBehaviour
 {
+    [SerializeField] private SEManager SEManager = null;
+
     [Header("Movement Settings")]
     [SerializeField] private float groundMoveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 10f;
@@ -120,6 +122,8 @@ public class PlayerOneController : MonoBehaviour
             // ã•ûŒü‚ÉƒWƒƒƒ“ƒv—Í‚ğ‰Á‚¦‚é
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isJumping = true;
+
+            SEManager.OnPlayOneShot(SEManager.SoundEffectName.pl_Jamp);
         }
 
     }

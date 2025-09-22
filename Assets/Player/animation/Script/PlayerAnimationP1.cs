@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerAnimationP1 : MonoBehaviour
 {

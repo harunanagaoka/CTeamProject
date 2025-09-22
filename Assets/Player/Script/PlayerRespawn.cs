@@ -5,6 +5,7 @@ public class PlayerRespawn : MonoBehaviour
 {
     private Vector3 startPosition;
     private Quaternion startRotation;
+    [SerializeField] private SEManager SEManager;
     [SerializeField] private float fallThreshold = -10f;
     [SerializeField] private float yOffset = 5f;
     [SerializeField] private float slowFallSpeed = -2f;
@@ -62,6 +63,8 @@ public class PlayerRespawn : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.2f);
+
+        SEManager.OnPlayOneShot(SEManager.SoundEffectName.pl_respawn);
 
         rb.isKinematic = false;
         isSlowFalling = true;

@@ -664,14 +664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b11d67c0c7fef46b5616358374d07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundMoveSpeed: 5
-  rotationSpeed: 5.5
-  jumpForce: 5.7
-  fallMultiplier: 2
-  lowJumpMultiplier: 2
-  airControl: 0.435
-  airMoveSpeed: 4
-  ignoreConveyorOnJump: 1
 --- !u!114 &1102799217 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8387190406158613484, guid: e0d1a56614d1c2e4a96f68eabd5f21f2, type: 3}
@@ -756,6 +748,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 510434ba27a640745a68fcfec1f2991b, type: 3}
+--- !u!114 &1313025121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2166780150446565223, guid: 510434ba27a640745a68fcfec1f2991b, type: 3}
+  m_PrefabInstance: {fileID: 1313025120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf17ad535887ea34f8716846a05d29fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &104295581048269630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1165,6 +1168,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8491574910363717156, guid: a0c51397aed6e2346b6f20684aa63234, type: 3}
+      propertyPath: SEManager
+      value: 
+      objectReference: {fileID: 1313025121}
     - target: {fileID: 8834663714107389682, guid: a0c51397aed6e2346b6f20684aa63234, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.79
@@ -1243,8 +1250,12 @@ PrefabInstance:
       value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 2536269886650830361, guid: e0d1a56614d1c2e4a96f68eabd5f21f2, type: 3}
+      propertyPath: SEManager
+      value: 
+      objectReference: {fileID: 1313025121}
+    - target: {fileID: 2536269886650830361, guid: e0d1a56614d1c2e4a96f68eabd5f21f2, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7591467213993499588, guid: e0d1a56614d1c2e4a96f68eabd5f21f2, type: 3}
       propertyPath: playerRespawn
@@ -1290,6 +1301,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8387190406158613484, guid: e0d1a56614d1c2e4a96f68eabd5f21f2, type: 3}
+      propertyPath: SEManager
+      value: 
+      objectReference: {fileID: 1313025121}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
