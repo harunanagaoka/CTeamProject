@@ -65,7 +65,7 @@ public class Timer : MonoBehaviour
 
     IEnumerator ReCountdownCoroutine()//リトライ用
     {
-        // フェードアウト開始
+        timerImage.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(3f);
 
