@@ -186,10 +186,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3177120685454870314}
+  - {fileID: 4680094086236449396}
   - {fileID: 7635296403404738437}
   - {fileID: 4461210771665543893}
   - {fileID: 7931174556731981275}
-  - {fileID: 4680094086236449396}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -507,4 +507,5 @@ MonoBehaviour:
   playTime: 2
   remaining_timeText: {fileID: 8158509609639829115}
   customFont: {fileID: 12800000, guid: 51793a990cbff644bba69c3cf6d04839, type: 3}
-  buttonResult: {fileID: 0}
+  button_Retry: {fileID: 0}
+  m_timer: {fileID: 0}

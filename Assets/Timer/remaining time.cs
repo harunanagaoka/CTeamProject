@@ -13,6 +13,9 @@ public class remainingtime : MonoBehaviour
     [SerializeField] private Font customFont;
     [SerializeField] private button_retry button_Retry = null;
     [SerializeField] private Timer m_timer = null;
+    [SerializeField] private Animator m_conveyorAnimation = null;
+
+    private bool m_animetionMoving = false;
 
     private float currentTime;
     //private bool isTimeOver = false;
@@ -36,7 +39,18 @@ public class remainingtime : MonoBehaviour
 
 
         // ゲームが開始していなければ何もしない
-        if (!Timer.IsGameStarted || IsTimeOver) return;
+        if (!Timer.IsGameStarted || IsTimeOver) {
+
+            m_conveyorAnimation.SetBool("isMove",false);
+            m_animetionMoving = false;
+            return;
+        }
+
+        if(m_animetionMoving == false)
+        {
+            m_conveyorAnimation.SetBool("isMove", true);
+            m_animetionMoving = true;
+        }
 
         // 残り時間を減らす
         currentTime -= Time.deltaTime;
@@ -55,6 +69,11 @@ public class remainingtime : MonoBehaviour
 
             m_timer.FinishMainBGM();
 
+            if (m_animetionMoving == true)
+            {
+                m_conveyorAnimation.SetBool("isMove", false);
+                m_animetionMoving = false;
+            }
 
             Debug.Log("制限時間終了！");
                 // 制限時間終了時にbuttonResultをアクティブにする
