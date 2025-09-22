@@ -10,15 +10,15 @@ public class SEManager : MonoBehaviour
 
     public enum SoundEffectName
     {
-        one,
-        two, 
-        three, 
-        four, 
-        five, 
-        six, 
-        seven,
-        eight,
-        nine
+        cofirm,
+        whistle,
+        pl_footSteps,
+        pl_Jamp,
+        pl_respawn,
+        coin_fall,
+        nCoin_get,
+        bCoin_get,
+        seaContact
     }
     public void OnPlayOneShot(SoundEffectName seNum)
     {
@@ -29,7 +29,6 @@ public class SEManager : MonoBehaviour
         m_audioSources[(int)seNum].clip = m_audioClips[(int)seNum];
         m_audioSources[(int)seNum].loop = true;
         m_audioSources[(int)seNum].Play();
-
     }
     public void OnStop(SoundEffectName seNum)
     {

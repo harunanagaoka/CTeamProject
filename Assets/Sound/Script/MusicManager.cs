@@ -11,9 +11,9 @@ public class MusicManager : MonoBehaviour
     public enum MusicName
     {
         Main,
+        Title,
         ResultFirst,
-        ResultLoop,
-        Title
+        ResultLoop
     }
 
     public void OnPlay(MusicName musicNum)
