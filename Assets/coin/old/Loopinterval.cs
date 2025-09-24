@@ -1,13 +1,15 @@
 using UnityEngine;
+using System.Collections;
 
 public class Loopinterval : MonoBehaviour
 {
-    [Header("1点コイン設定")]
+    [SerializeField]
+    private GameObject m_scoreManager = null;
+
     [SerializeField] private GameObject coin1Prefab;
     [SerializeField] private float coin1Interval = 5f;
     [SerializeField] private int coin1Count = 3;
 
-    [Header("3点コイン設定")]
     [SerializeField] private GameObject coin3Prefab;
     [SerializeField] private float coin3Interval = 8f;
     [SerializeField] private int coin3Count = 1;
@@ -17,28 +19,28 @@ public class Loopinterval : MonoBehaviour
 
     private bool hasStarted = false;
 
-    void Update()
+    public void StartCoinSpawn()
     {
-        if (!hasStarted && Timer.IsGameStarted)
-        {
-            hasStarted = true;
-            StartCoroutine(SpawnCoinLoop(coin1Prefab, coin1Interval, coin1Count));
-            StartCoroutine(SpawnCoinLoop(coin3Prefab, coin3Interval, coin3Count));
-        }
+        hasStarted = true;
+        StartCoroutine(SpawnCoinLoop(coin1Prefab, coin1Interval, coin1Count));
+        StartCoroutine(SpawnCoinLoop(coin3Prefab, coin3Interval, coin3Count));
     }
 
-    System.Collections.IEnumerator SpawnCoinLoop(GameObject prefab, float interval, int count)
+    public void StopCoinSpawn()
     {
-        while (true)
+        hasStarted = false;
+    }
+
+    IEnumerator SpawnCoinLoop(GameObject prefab, float interval, int count)
+    {
+        while (hasStarted)
         {
-            if (!remainingtime.IsTimeOver)
-            {
-                SpawnRandomCoins(count, prefab);
-            }
+
+            SpawnRandomCoins(count, prefab);
+
             yield return new WaitForSeconds(interval);
         }
     }
-
     void SpawnRandomCoins(int count, GameObject prefab)
     {
         if (spawnPositions1.Length == 0) return;
@@ -60,7 +62,7 @@ public class Loopinterval : MonoBehaviour
         for (int i = 0; i < count && i < indices.Count; i++)
         {
             Vector3 pos = spawnPositions1[indices[i]];
-            Instantiate(prefab, pos, Quaternion.identity);
+            Instantiate(prefab, pos, Quaternion.identity, m_scoreManager.transform);
         }
     }
 }

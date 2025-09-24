@@ -11,12 +11,6 @@ public class MainGameTimer : MonoBehaviour
 
     public float CurrentTime { get { return m_currentTime; } private set { m_currentTime = value; } }
 
-
-    void Start()
-    {
-       
-    }
-
     void Update()
     {
         if (m_currentTime <= 0)

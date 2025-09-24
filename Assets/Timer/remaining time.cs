@@ -36,42 +36,42 @@ public class remainingtime : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("残り時間" + currentTime);
+        //Debug.Log("残り時間" + currentTime);
 
-        // ゲームが開始していなければ何もしない
-        if (!Timer.IsGameStarted || IsTimeOver) return;
+        //// ゲームが開始していなければ何もしない
+        //if (!Timer.IsGameStarted || IsTimeOver) return;
 
-        // 残り時間を減らす
-        currentTime -= Time.deltaTime;
-        CurrentTime = currentTime;
+        //// 残り時間を減らす
+        //currentTime -= Time.deltaTime;
+        //CurrentTime = currentTime;
 
-        if (currentTime <= 0f)
-        {
-            currentTime = 0f;
-            IsTimeOver = true;
-            Debug.Log("制限時間終了！");
-            if (button_Retry != null)
-            {
-                button_Retry.enabled = true;
-            }
-        }
+        //if (currentTime <= 0f)
+        //{
+        //    currentTime = 0f;
+        //    IsTimeOver = true;
+        //    Debug.Log("制限時間終了！");
+        //    if (button_Retry != null)
+        //    {
+        //        button_Retry.enabled = true;
+        //    }
+        //}
 
-        // 残り時間を整数で表示
-        int displayTime = Mathf.CeilToInt(currentTime);
-        if (remaining_timeText != null)
-        {
-            remaining_timeText.text = displayTime.ToString();
-        }
+        //// 残り時間を整数で表示
+        //int displayTime = Mathf.CeilToInt(currentTime);
+        //if (remaining_timeText != null)
+        //{
+        //    remaining_timeText.text = displayTime.ToString();
+        //}
 
-        // スコア表示を更新
-        if (player1ScoreText != null)
-        {
-            player1ScoreText.text = "P1: " + Score1.player1Score.ToString();
-        }
-        if (player2ScoreText != null)
-        {
-            player2ScoreText.text = "P2: " + Score1.player2Score.ToString();
-        }
+        //// スコア表示を更新
+        //if (player1ScoreText != null)
+        //{
+        //    player1ScoreText.text = "P1: " + Score1.player1Score.ToString();
+        //}
+        //if (player2ScoreText != null)
+        //{
+        //    player2ScoreText.text = "P2: " + Score1.player2Score.ToString();
+        //}
     }
 
     public void ResetTime()

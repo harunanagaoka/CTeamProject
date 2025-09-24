@@ -19,25 +19,25 @@ public class winner : MonoBehaviour
 
     void ShowWinnerCharacter()
     {
-        int p1 = Score1.player1Score;
-        int p2 = Score1.player2Score;
+        //int p1 = Score1.player1Score;
+        //int p2 = Score1.player2Score;
 
-        GameObject winnerObj1 = null;
-        GameObject winnerObj2 = null;
+        //GameObject winnerObj1 = null;
+        //GameObject winnerObj2 = null;
 
-        if (p1 > p2)
-        {
-            winnerObj1 = Instantiate(player1Prefab, centerPoint.position, Quaternion.identity);
-        }
-        else if (p2 > p1)
-        {
-            winnerObj2 = Instantiate(player2Prefab, centerPoint.position, Quaternion.identity);
-        }
-        else
-        {
-            winnerObj1 = Instantiate(player2Prefab, centerPoint.position, Quaternion.identity);
-            winnerObj2 = Instantiate(player1Prefab, centerPoint.position, Quaternion.identity);
-        }
+        //if (p1 > p2)
+        //{
+        //    winnerObj1 = Instantiate(player1Prefab, centerPoint.position, Quaternion.identity);
+        //}
+        //else if (p2 > p1)
+        //{
+        //    winnerObj2 = Instantiate(player2Prefab, centerPoint.position, Quaternion.identity);
+        //}
+        //else
+        //{
+        //    winnerObj1 = Instantiate(player2Prefab, centerPoint.position, Quaternion.identity);
+        //    winnerObj2 = Instantiate(player1Prefab, centerPoint.position, Quaternion.identity);
+        //}
 
         // 必要に応じてwinnerObjのスケールや向きを調整
     }

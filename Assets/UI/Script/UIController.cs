@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class UIController : MonoBehaviour
 
     private MainGameTimer m_mainGameTimer = null;
 
+    [SerializeField]
+    private Loopinterval m_coinSpawnner = null;
+
     //リザルトシーン
     [SerializeField]
     private Canvas m_resultCanvas = null;
@@ -48,6 +52,8 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
+        Debug();
+
         //メインシーンの時間が一番長いため、メインシーンの処理を一番上に書いています。
         if (m_gameScenes.CurrentScene == GameScene.Main)
         {
@@ -104,6 +110,7 @@ public class UIController : MonoBehaviour
         m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.whistle);
         m_musicManager.OnPlay(MusicManager.MusicName.Main);
         m_mainGameTimer.StartTimer();
+        m_coinSpawnner.StartCoinSpawn();
         m_gameScenes.ChangeScene(GameScene.Main);
 
         m_canInput = true;
@@ -141,5 +148,13 @@ public class UIController : MonoBehaviour
         m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.CountDown);
 
         yield return new WaitForSeconds(1f);
+    }
+
+    void Debug()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Main");
+        }
     }
 }
