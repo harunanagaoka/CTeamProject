@@ -18,7 +18,8 @@ public class SEManager : MonoBehaviour
         coin_fall,
         nCoin_get,
         bCoin_get,
-        seaContact
+        seaContact,
+        CountDown
     }
     public void OnPlayOneShot(SoundEffectName seNum)
     {
