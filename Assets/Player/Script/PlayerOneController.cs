@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerOneController : MonoBehaviour
 {
     [SerializeField] private SEManager SEManager = null;
+    [SerializeField] private ConveyorMove m_conveyorMove = null;
 
     [Header("Movement Settings")]
     [SerializeField] private float groundMoveSpeed = 5f;
@@ -68,14 +69,16 @@ public class PlayerOneController : MonoBehaviour
 
         // 足元がコンベアーならその速度を加算
         Vector3 conveyorVel = Vector3.zero;
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1.1f))
+
+        //どうしてもレイキャストがヒットしないので高さで管理しています
+        if (transform.position.y < 0.79f && transform.position.y > 0.75f)//Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, Mathf.Infinity)
         {
-            if (hit.collider.CompareTag("BeltConveyor"))
-            {
-                ConveyorMove belt = hit.collider.GetComponent<ConveyorMove>();
-                if (belt != null)
-                    conveyorVel = belt.GetConveyorVelocity();
-            }
+            //if (hit.collider.CompareTag("BeltConveyor"))
+            //{
+                //ConveyorMove belt = hit.collider.GetComponent<ConveyorMove>();
+                //if (belt != null)
+                    conveyorVel = m_conveyorMove.GetConveyorVelocity();
+            //}
         }
 
         // 最終速度 = プレイヤー速度 + コンベアー速度

@@ -24,7 +24,7 @@ public class BGMTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            m_musicManager.OnStop();
+            
         }
 
     }

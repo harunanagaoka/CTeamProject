@@ -36,6 +36,8 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private Loopinterval m_coinSpawnner = null;
 
+    private bool m_isCountDown = false;
+
     //リザルトシーン
     [SerializeField]
     private ResultUI m_resultUI = null;
@@ -65,8 +67,16 @@ public class UIController : MonoBehaviour
         if (m_gameScenes.CurrentScene == GameScene.Main)
         {
             //タイマー再生、タイムアップでリザルトへ
-            if(m_mainGameTimer.CurrentTime <= 0)
+            if(m_mainGameTimer.CurrentTime <= 4 && !m_isCountDown)
             {
+                m_isCountDown = true;
+                StartCoroutine(CountDown());
+            }
+
+            if (m_mainGameTimer.CurrentTime <= 0)
+            {
+                m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.whistle);
+                m_coinSpawnner.StopCoinSpawn();
                 m_mainCanvas.enabled = false;
                 m_resultCanvas.enabled = true;
                 m_canInput = false;
@@ -109,8 +119,9 @@ public class UIController : MonoBehaviour
 
             if (Keyboard.current.enterKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton1))
             {
-                //ritorai
+                //リトライ
                 ResetMainGame();
+                m_resultUI.ResetUI();
                 m_resultCanvas.enabled = false;
 
                 StartCoroutine(ProcessGameStart());
@@ -120,6 +131,7 @@ public class UIController : MonoBehaviour
 
             if( Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton0)){
                 //リセット
+                m_resultUI.ResetUI();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
 
@@ -192,8 +204,11 @@ public class UIController : MonoBehaviour
 
     private IEnumerator ProcessResult()
     {
+        m_musicManager.OnplayResultBGM();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
+
+        m_musicManager.OnPlay(MusicManager.MusicName.ResultLoop);
 
         m_resultUI.AppearResultImage();
 
@@ -207,6 +222,8 @@ public class UIController : MonoBehaviour
     private void ResetMainGame()
     {
         //タイマーとスコアリセット
+        m_isCountDown = false;
+        m_musicManager.OnStop();
         m_mainGameTimer.ResetTimer();
         m_scoreManager.ResetScore();
     }

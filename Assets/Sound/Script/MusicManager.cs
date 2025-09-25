@@ -1,4 +1,5 @@
 using UnityEngine;
+using static MusicManager;
 
 public class MusicManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class MusicManager : MonoBehaviour
 
     public void OnPlay(MusicName musicNum)
     {
+        OnStop();
         m_audioSources.clip = m_audioClips[(int)musicNum];
         m_audioSources.loop = true;
         m_audioSources.Play();
@@ -30,6 +32,9 @@ public class MusicManager : MonoBehaviour
 
     public void OnplayResultBGM()
     {
-
+        OnStop();
+        m_audioSources.clip = m_audioClips[(int)MusicName.ResultFirst];
+        m_audioSources.loop = true;
+        m_audioSources.Play();
     }
 }
