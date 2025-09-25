@@ -15,15 +15,15 @@ public class Score3 : MonoBehaviour
         if (other.CompareTag("Player1"))
         {
             GetScore();
-            PlayEffect(); 
-            Destroy(gameObject); // コインを消す
+            PlayEffect();
+            Destroy(transform.parent.gameObject); // コインを消す
         }
         // プレイヤー2に触れた場合
         if (other.CompareTag("Player2"))
         {
             GetScore();
             PlayEffect();
-            Destroy(gameObject); // コインを消す
+            Destroy(transform.parent.gameObject); // コインを消す
         }
         // 他にもスコアに応じた処理をここに記述可能
     }

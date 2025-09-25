@@ -16,14 +16,14 @@ public class Score1 : MonoBehaviour
         {
             GetScore();
             PlayEffect();
-            Destroy(gameObject); // コインを消す
+            Destroy(transform.parent.gameObject); // コインを消す
         }
         // プレイヤー2に触れた場合
         if (other.CompareTag("Player2"))
         {
             GetScore();
             PlayEffect();
-            Destroy(gameObject); // コインを消す
+            Destroy(transform.parent.gameObject); // コインを消す
         }
     }
 

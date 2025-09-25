@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7843762069490914033}
   - component: {fileID: 3364022826623005193}
   - component: {fileID: 4965336627896618733}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_particle_star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4920,7 +4920,7 @@ GameObject:
   - component: {fileID: 6839933445691282450}
   - component: {fileID: 2315298898513512692}
   - component: {fileID: 8505513080763069250}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Root_BonusCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

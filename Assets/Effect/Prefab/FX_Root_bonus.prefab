@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5232646105417399034}
   - component: {fileID: 8666125450808443948}
   - component: {fileID: 752563889749046400}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_star_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,12 +43,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4902,7 +4902,7 @@ GameObject:
   - component: {fileID: 9092117699120625809}
   - component: {fileID: 2300302604680808756}
   - component: {fileID: 1792100704595858786}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_star_bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4934,12 +4934,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9793,7 +9793,7 @@ GameObject:
   - component: {fileID: 8621473494540918925}
   - component: {fileID: 3588861965174187674}
   - component: {fileID: 892445271603530230}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_ring_bottom_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9825,12 +9825,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -14684,7 +14684,7 @@ GameObject:
   - component: {fileID: 8995996404884008197}
   - component: {fileID: 8311374762201422489}
   - component: {fileID: 3878848556829480652}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_particle_circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14716,12 +14716,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -19575,7 +19575,7 @@ GameObject:
   - component: {fileID: 126115382840661575}
   - component: {fileID: 4623398234456577910}
   - component: {fileID: 5357103673714813514}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_particle_star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19607,12 +19607,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -24466,7 +24466,7 @@ GameObject:
   - component: {fileID: 7999186664600445622}
   - component: {fileID: 7260879943573469918}
   - component: {fileID: 4071296780931841006}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_ring_bottom_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24498,12 +24498,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -29357,7 +29357,7 @@ GameObject:
   - component: {fileID: 3281766207481216748}
   - component: {fileID: 1947677828815267343}
   - component: {fileID: 8604169314000964984}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_ring_top_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29389,12 +29389,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -34248,7 +34248,7 @@ GameObject:
   - component: {fileID: 2578980591930463219}
   - component: {fileID: 6942586439481533487}
   - component: {fileID: 2526084457621323831}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_ring_top_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34280,12 +34280,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -39139,7 +39139,7 @@ GameObject:
   - component: {fileID: 7769421189085643678}
   - component: {fileID: 1875880764669928339}
   - component: {fileID: 2645185662453906019}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FX_Root_bonus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39179,12 +39179,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0

@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 3
-  collectEffect: {fileID: 2082880445637707823, guid: 64e79ca029f2ea54995d7a5d531c1328, type: 3}
+  collectEffect: {fileID: 9161470106872687986, guid: dd0436123a9ed3a43ad0461754ea263f, type: 3}
 --- !u!1 &7446301522488477690
 GameObject:
   m_ObjectHideFlags: 0
