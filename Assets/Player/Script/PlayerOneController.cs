@@ -27,6 +27,8 @@ public class PlayerOneController : MonoBehaviour
     private Rigidbody rb;
     private bool isJumping = false;
 
+    private Vector3 initPos = Vector3.zero;
+    private Quaternion initRotation = Quaternion.identity;
 
     private const string HORIZONTAL = "Horizontal_P1";
     private const string VERTICAL = "Vertical_P1";
@@ -35,6 +37,8 @@ public class PlayerOneController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        initPos = this.transform.position;
+        initRotation = this.transform.rotation;
     }
 
     void FixedUpdate()
@@ -138,5 +142,11 @@ public class PlayerOneController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BeltConveyor"))
             isJumping = false;
+    }
+
+    public void ResetPosition()
+    {
+        this.transform.position = initPos;
+        this.transform.rotation = initRotation;
     }
 }

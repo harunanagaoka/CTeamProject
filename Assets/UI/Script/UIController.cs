@@ -45,6 +45,12 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private Canvas m_resultCanvas = null;
 
+    [SerializeField]
+    private PlayerOneController m_player_One = null;
+
+    [SerializeField]
+    private PlayerTwoController m_player_Two = null;
+
     //“ü—Í‚ðŽó‚¯•t‚¯‚é‚©‚Ç‚¤‚©
     private bool m_canInput = true;
 
@@ -147,7 +153,8 @@ public class UIController : MonoBehaviour
         m_musicManager.OnPlay(MusicManager.MusicName.Title);
         m_mainCanvas.enabled = false;
         m_resultCanvas.enabled = false;
-        m_titleCanvas.enabled = true; ;
+        m_titleCanvas.enabled = true;
+
     }
 
     private IEnumerator ProcessGameStart()
@@ -232,6 +239,8 @@ public class UIController : MonoBehaviour
         m_mainGameTimer.ResetTimer();
         m_scoreManager.ResetScore();
         m_coinSpawnner.StopCoinSpawn();
+        m_player_One.ResetPosition();
+        m_player_Two.ResetPosition();
     }
 
 

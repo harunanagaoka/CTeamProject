@@ -484,6 +484,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRespawn: 0
   playerRespawn: {fileID: 523063003}
+--- !u!114 &523063007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8491574910363717156, guid: a0c51397aed6e2346b6f20684aa63234, type: 3}
+  m_PrefabInstance: {fileID: 1821316305840115910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523062998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37addf183d20df448bbfdaf2ea374d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &583564285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -981,6 +992,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04a49b0c20ddd764d9bf3b94cb776033, type: 3}
+--- !u!114 &1260652915 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2536269886650830361, guid: e0d1a56614d1c2e4a96f68eabd5f21f2, type: 3}
+  m_PrefabInstance: {fileID: 6298076539469342574}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f851cd5d25cfe8409767473a0305f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1313025120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2026,13 +2048,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4561002785264715770, guid: c9b521de465f7fc42b3d1fe2f0b37335, type: 3}
+      propertyPath: m_maxTime
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5952037366700247299, guid: c9b521de465f7fc42b3d1fe2f0b37335, type: 3}
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 6191249788588546865, guid: c9b521de465f7fc42b3d1fe2f0b37335, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6700887047474709193, guid: c9b521de465f7fc42b3d1fe2f0b37335, type: 3}
       propertyPath: m_SEManager
@@ -2042,6 +2068,14 @@ PrefabInstance:
       propertyPath: m_gameScenes
       value: 
       objectReference: {fileID: 4974480075145445879}
+    - target: {fileID: 6700887047474709193, guid: c9b521de465f7fc42b3d1fe2f0b37335, type: 3}
+      propertyPath: m_player_One
+      value: 
+      objectReference: {fileID: 1260652915}
+    - target: {fileID: 6700887047474709193, guid: c9b521de465f7fc42b3d1fe2f0b37335, type: 3}
+      propertyPath: m_player_Two
+      value: 
+      objectReference: {fileID: 523063007}
     - target: {fileID: 6700887047474709193, guid: c9b521de465f7fc42b3d1fe2f0b37335, type: 3}
       propertyPath: m_coinSpawnner
       value: 
