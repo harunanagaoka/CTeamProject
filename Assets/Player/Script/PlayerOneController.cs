@@ -27,6 +27,7 @@ public class PlayerOneController : MonoBehaviour
     private Rigidbody rb;
     private bool isJumping = false;
 
+
     private const string HORIZONTAL = "Horizontal_P1";
     private const string VERTICAL = "Vertical_P1";
     private const string JUMP = "Jump_P1";
@@ -38,6 +39,7 @@ public class PlayerOneController : MonoBehaviour
 
     void FixedUpdate()
     {
+
         var respawn = GetComponent<PlayerRespawn>();
         if (respawn != null && respawn.IsRespawning())
             return;
@@ -88,15 +90,16 @@ public class PlayerOneController : MonoBehaviour
             move.z + conveyorVel.z
         );
 
-        // ジャンプ挙動の補正
+        //// ジャンプ挙動の補正（修正)：常に最高高度まで上昇）
         if (rb.linearVelocity.y < 0)
         {
             rb.AddForce(Physics.gravity * (fallMultiplier - 1), ForceMode.Force);
         }
-        else if (rb.linearVelocity.y > 0 && !Input.GetButton(JUMP))
-        {
-            rb.AddForce(Physics.gravity * (lowJumpMultiplier - 1), ForceMode.Force);
-        }
+
+        //else if (rb.linearVelocity.y > 0 && !Input.GetButton(JUMP))
+        //{
+        //    rb.AddForce(Physics.gravity * (lowJumpMultiplier - 1), ForceMode.Force);
+        //}
     }
 
     void Update()

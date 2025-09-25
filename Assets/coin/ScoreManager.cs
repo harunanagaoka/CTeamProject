@@ -25,5 +25,14 @@ public class ScoreManager : MonoBehaviour
     {
         playerScore_One = 0;
         playerScore_Two = 0;
+        DestroyAllChildren();
+    }
+
+    private void DestroyAllChildren()
+    {
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
     }
 }

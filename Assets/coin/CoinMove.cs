@@ -20,7 +20,6 @@ public class CoinMove : MonoBehaviour
     {
         if(this.transform.parent.transform.position.y < 0.88f && this.transform.parent.transform.position.y > 0.75f)
         {
-
             rb.linearVelocity = ve;
         }
     }

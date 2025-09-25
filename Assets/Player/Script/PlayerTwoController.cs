@@ -88,15 +88,16 @@ public class PlayerTwoController : MonoBehaviour
             move.z + conveyorVel.z
         );
 
-        // ジャンプ挙動の補正
+        //// ジャンプ挙動の補正（修正)：常に最高高度まで上昇）
         if (rb.linearVelocity.y < 0)
         {
             rb.AddForce(Physics.gravity * (fallMultiplier - 1), ForceMode.Force);
         }
-        else if (rb.linearVelocity.y > 0 && !Input.GetButton(JUMP))
-        {
-            rb.AddForce(Physics.gravity * (lowJumpMultiplier - 1), ForceMode.Force);
-        }
+
+        //else if (rb.linearVelocity.y > 0 && !Input.GetButton(JUMP))
+        //{
+        //    rb.AddForce(Physics.gravity * (lowJumpMultiplier - 1), ForceMode.Force);
+        //}
     }
 
     void Update()

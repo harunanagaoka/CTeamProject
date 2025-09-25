@@ -55,6 +55,7 @@ public class UIController : MonoBehaviour
 
         if (m_gameScenes.CurrentScene == GameScene.Title)
         {
+            Time.timeScale = 0f;
             LoadTitleScene();
         }
     }
@@ -75,6 +76,7 @@ public class UIController : MonoBehaviour
 
             if (m_mainGameTimer.CurrentTime <= 0)
             {
+                Time.timeScale = 0f;
                 m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.whistle);
                 m_coinSpawnner.StopCoinSpawn();
                 m_mainCanvas.enabled = false;
@@ -164,7 +166,10 @@ public class UIController : MonoBehaviour
         m_musicManager.OnPlay(MusicManager.MusicName.Main);
         m_mainGameTimer.StartTimer();
         m_coinSpawnner.StartCoinSpawn();
+        Time.timeScale = 1f;
         m_gameScenes.ChangeScene(GameScene.Main);
+
+        
 
         m_canInput = true;
     }
@@ -176,7 +181,7 @@ public class UIController : MonoBehaviour
         Color c = m_startImage.color;
         while (time < m_fadeOutDuration)
         {
-            time += Time.deltaTime;
+            time += Time.unscaledDeltaTime;
             c.a = Mathf.Lerp(startAlpha, 0f, time / m_fadeOutDuration);
             m_startImage.color = c;
             yield return null;
@@ -187,32 +192,32 @@ public class UIController : MonoBehaviour
 
     private IEnumerator CountDown()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.CountDown);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.CountDown);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.CountDown);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
     }
 
     private IEnumerator ProcessResult()
     {
         m_musicManager.OnplayResultBGM();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSecondsRealtime(5f);
 
         m_musicManager.OnPlay(MusicManager.MusicName.ResultLoop);
 
         m_resultUI.AppearResultImage();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         m_resultUI.AppearBottuns();
 
@@ -226,6 +231,7 @@ public class UIController : MonoBehaviour
         m_musicManager.OnStop();
         m_mainGameTimer.ResetTimer();
         m_scoreManager.ResetScore();
+        m_coinSpawnner.StopCoinSpawn();
     }
 
 
