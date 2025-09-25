@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
@@ -30,9 +31,15 @@ public class UIController : MonoBehaviour
     private MainGameTimer m_mainGameTimer = null;
 
     [SerializeField]
+    private ScoreManager m_scoreManager = null;
+
+    [SerializeField]
     private Loopinterval m_coinSpawnner = null;
 
     //リザルトシーン
+    [SerializeField]
+    private ResultUI m_resultUI = null;
+
     [SerializeField]
     private Canvas m_resultCanvas = null;
 
@@ -58,7 +65,16 @@ public class UIController : MonoBehaviour
         if (m_gameScenes.CurrentScene == GameScene.Main)
         {
             //タイマー再生、タイムアップでリザルトへ
+            if(m_mainGameTimer.CurrentTime <= 0)
+            {
+                m_mainCanvas.enabled = false;
+                m_resultCanvas.enabled = true;
+                m_canInput = false;
 
+                StartCoroutine(ProcessResult());
+
+                m_gameScenes.ChangeScene(GameScene.Result);
+            }
 
             return;
         }
@@ -76,6 +92,8 @@ public class UIController : MonoBehaviour
 
                 m_musicManager.OnStop();
 
+                m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.cofirm);
+
                 StartCoroutine(ProcessGameStart());
             }
 
@@ -84,20 +102,43 @@ public class UIController : MonoBehaviour
 
         if (m_gameScenes.CurrentScene == GameScene.Result)
         {
+            if (!m_canInput)
+            {
+                return;
+            }
+
+            if (Keyboard.current.enterKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton1))
+            {
+                //ritorai
+                ResetMainGame();
+                m_resultCanvas.enabled = false;
+
+                StartCoroutine(ProcessGameStart());
+
+                //UIリセット
+            }
+
+            if( Keyboard.current.spaceKey.wasPressedThisFrame || Input.GetKeyDown(KeyCode.JoystickButton0)){
+                //リセット
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
 
 
-            return;
+                return;
         }
     }
 
     private void LoadTitleScene()
     {
         m_musicManager.OnPlay(MusicManager.MusicName.Title);
+        m_mainCanvas.enabled = false;
+        m_resultCanvas.enabled = false;
+        m_titleCanvas.enabled = true; ;
     }
 
     private IEnumerator ProcessGameStart()
     {
-        m_SEManager.OnPlayOneShot(SEManager.SoundEffectName.cofirm);
+        
         m_mainCanvas.enabled = true;
         m_mainGameTimer.ResetTimer();
 
@@ -115,7 +156,6 @@ public class UIController : MonoBehaviour
 
         m_canInput = true;
     }
-
     private IEnumerator FadeOutImage()
     {
         if (m_startImage == null) yield break;
@@ -149,6 +189,29 @@ public class UIController : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
     }
+
+    private IEnumerator ProcessResult()
+    {
+
+        yield return new WaitForSeconds(1f);
+
+        m_resultUI.AppearResultImage();
+
+        yield return new WaitForSeconds(1f);
+
+        m_resultUI.AppearBottuns();
+
+        m_canInput = true;
+    }
+
+    private void ResetMainGame()
+    {
+        //タイマーとスコアリセット
+        m_mainGameTimer.ResetTimer();
+        m_scoreManager.ResetScore();
+    }
+
+
 
     void Debug()
     {
