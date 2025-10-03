@@ -148,13 +148,12 @@ public class UIController : MonoBehaviour
         }
     }
 
-    private void LoadTitleScene()
+    private void LoadTitleScene()//ñΩñºïœçX
     {
         m_musicManager.OnPlay(MusicManager.MusicName.Title);
         m_mainCanvas.enabled = false;
         m_resultCanvas.enabled = false;
         m_titleCanvas.enabled = true;
-
     }
 
     private IEnumerator ProcessGameStart()

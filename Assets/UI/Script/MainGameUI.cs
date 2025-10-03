@@ -15,14 +15,21 @@ public class MainGameUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_scoreText_two = null;
 
+    private Canvas m_mainCanvas = null;
+
     private MainGameTimer m_timer = null;
 
-    void Start()
+    private const string m_timerObjectName = "MainGameManager";
+
+    private void Awake()
     {
-        m_timer = GetComponent<MainGameTimer>();
+        m_mainCanvas = GetComponent<Canvas>();
+
+        GameObject timerObject = GameObject.Find(m_timerObjectName);
+        m_timer = timerObject.GetComponent<MainGameTimer>();
     }
 
-    void Update()
+    private void Update()
     {
         UpdateTimerText();
         UpdateScoreText();
@@ -38,5 +45,10 @@ public class MainGameUI : MonoBehaviour
     {
         m_scoreText_one.text = m_scoreManager.PlayerOneScore.ToString();
         m_scoreText_two.text = m_scoreManager.PlayerTwoScore.ToString();
+    }
+
+    public void SetCanvasVisible(bool visible)
+    {
+        m_mainCanvas.enabled = visible;
     }
 }
